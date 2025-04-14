@@ -1,0 +1,34 @@
+ #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* background-color: rgb(18, 17, 17); */
+}
+
+.dark {
+  background-color: black;
+}
+.light {
+  background-color: white;
+}
+
+
+
+
+@keyframes scaleImage {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-scale {
+  animation: scaleImage 3s infinite ease-in-out;
+}
+
+.animate-scale:hover {
+  animation-play-state: paused;
+}
+
