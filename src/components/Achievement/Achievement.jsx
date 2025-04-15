@@ -1,6 +1,7 @@
 import React from "react";
 import MultiActionAreaCard from "../Card";
 import leetCode from "/assets/leetCode.jpeg"
+import sih from "/assets/sih.jpg"
 import coding_club from "/assets/acm.png"
 import nasa_space_app from "/assets/NASA_spaceApp.jpg"
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ function Achievement() {
     >
       <div>
       <a
-          href="https://www.linkedin.com/posts/thecodecrusaderx_hacktoberfest2024-opensource-learning-activity-7256251757591199744-Ktxj?utm_source=share&utm_medium=member_desktop"
+          href="https://www.linkedin.com/in/raj-priyadershi-56a256282/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -31,12 +32,12 @@ function Achievement() {
       </div>
       <div>
       <a
-          href="https://www.linkedin.com/posts/thecodecrusaderx_my-first-leetcode-badge-activity-7240783085439500290-sYkK?utm_source=share&utm_medium=member_desktop"
+          href="https://www.linkedin.com/posts/raj-priyadershi-56a256282_sih2023-finalist-techinnovation-activity-7151097673238896641-mpHi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAES8eKIB56CEzDTkLN7Y1Ae7xnyh4ugwZbY"
           target="_blank"
           rel="noopener noreferrer"
         >
         <MultiActionAreaCard
-          img={leetCode}
+          img={sih}
           name={"Smart India Hackathon 2023"}
           dis={
             "! Worked with my team on real-world problems, showcased innovative tech solutions, gained national-level exposure, and earned a certificate—truly a proud and enriching experience!"
@@ -46,7 +47,7 @@ function Achievement() {
       </div>
       <div>
       <a
-          href="https://www.linkedin.com/posts/thecodecrusaderx_a-great-session-conducted-by-me-and-our-team-activity-7104627407956942848-UdXS?utm_source=share&utm_medium=member_desktop"
+          href="https://www.linkedin.com/in/raj-priyadershi-56a256282/"
           target="_blank"
           rel="noopener noreferrer"
         >
