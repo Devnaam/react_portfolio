@@ -133,14 +133,97 @@ const Blog = () => {
       `
     },
     {
-      id: 2,
-      title: '📊 Why You Should Start Blogging as a Developer',
-      preview: 'Sharing your journey helps others and boosts your brand.',
-      tag: 'Life',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-      content:
-        'Blogging as a developer is a powerful way to share knowledge, connect with others, and grow your personal brand. This post explores practical tips for getting started, from choosing topics to building an audience. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
+        id: 2,
+        title: '📊 Why Do We Need Skills More Than a Degree Nowadays?',
+        preview: 'Sharing my journey as a student, I explore why skills outweigh degrees in today’s tech and freelancing world.',
+        tag: 'Life',
+        image: 'https://images.unsplash.com/photo-1516321310764-8d8a6f3b7e6e',
+        content: `
+          <div class="space-y-6">
+  <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+    🎓 A degree can open the door. But in today’s fast-moving world, it’s the *skills* that get you the seat at the table—and help you stay there.
+  </p>
+
+  <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+    Hi, I’m <strong>Devnaam Priyaderhi</strong>, a B.Tech 3rd-year Data Science student from Sri Venkateshwara College of Engineering and Technology, Chittoor. And here’s why I believe *skills now matter more than degrees*—not just in tech, but across every industry.
+  </p>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">📉 The Problem with Relying Solely on Degrees</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    Degrees often follow outdated curriculums, while industries evolve rapidly. Many graduates step out with theoretical knowledge but lack practical application. Meanwhile, companies today want professionals who can <strong>build, adapt, and contribute from Day 1</strong>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">🧠 Why Skills Matter More</h2>
+  <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+    <li>Skills are proof you can solve real-world problems.</li>
+    <li>They show initiative, passion, and continuous learning.</li>
+    <li>With tech evolving so fast, adaptability is everything.</li>
+  </ul>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    From coding and design to communication and analysis—skills give you the edge that no paper certificate can.
+  </p>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">💼 What Companies Actually Look For</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    Today’s recruiters check your <span class="italic">GitHub</span> before your resume. They want to see:
+  </p>
+  <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+    <li>Hands-on projects</li>
+    <li>Hackathon experience</li>
+    <li>Internships, freelancing, open-source contributions</li>
+    <li>Your ability to <strong>communicate, collaborate</strong>, and keep learning</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">⚙️ Skills You Should Start With</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    Depending on your interest, here are some in-demand skills to explore:
+  </p>
+  <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+    <li><strong>Tech:</strong> Python, JavaScript, SQL, Data Analysis, Cloud Computing</li>
+    <li><strong>Creative:</strong> UI/UX Design, Video Editing, Content Writing</li>
+    <li><strong>Core:</strong> Communication, Public Speaking, Problem Solving</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">📈 My Personal Take</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    I started with theory too, but it was only when I built projects, joined hackathons, and shared work publicly that opportunities began to show up. The degree gives you structure. The *skills* give you wings.
+  </p>
+
+  <blockquote class="border-l-4 border-indigo-500 dark:border-indigo-400 pl-4 italic text-gray-600 dark:text-gray-400">
+    “The world doesn’t hire degrees—it hires doers.” — Devnaam Priyaderhi
+  </blockquote>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">🚀 The Way Forward</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    Combine your degree with side projects. Volunteer. Learn online. Intern. Share on LinkedIn. Build a portfolio. Focus on learning something new every day—even if it's just 1%.
+  </p>
+
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mt-8">💬 Let’s Talk!</h2>
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+    Want help getting started with skill-building or projects? I’d love to connect:
+  </p>
+  <ul class="list-none text-gray-600 dark:text-gray-400 space-y-2">
+    <li>
+      <a href="[Your LinkedIn URL]" class="text-indigo-600 dark:text-indigo-400 hover:underline">LinkedIn</a>
+    </li>
+    <li>
+      <a href="[Your GitHub URL]" class="text-indigo-600 dark:text-indigo-400 hover:underline">GitHub</a>
+    </li>
+    <li>
+      <a href="[Your Portfolio URL]" class="text-indigo-600 dark:text-indigo-400 hover:underline">Portfolio</a>
+    </li>
+    <li>
+      <a href="mailto:workwithdevnaam@gmail.com" class="text-indigo-600 dark:text-indigo-400 hover:underline">Email: workwithdevnaam@gmail.com</a>
+    </li>
+  </ul>
+
+  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mt-6">
+    Ready to build? Let your journey begin today—not after your final semester.
+  </p>
+</div>
+
+        `,
+      },
     {
       id: 3,
       title: 'My Latest Project Journey',
