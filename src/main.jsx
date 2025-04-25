@@ -12,6 +12,7 @@ import Home from "./components/Home/Home.jsx";
 import Skills from "./components/Skills/Skills.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Project from "./components/Project/Project.jsx";
+import Blog from "./components/Blog/Blog.jsx";
 import { SnackbarProvider } from "notistack";
 
 import { store } from "./app/store";
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/Projects" element={<Project />} />
       <Route path="/achievements" element={<Achievement />} />
+      <Route path="/blog" element={<Blog />} />
     </Route>
   )
 );
