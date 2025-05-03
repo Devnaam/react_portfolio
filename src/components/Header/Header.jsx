@@ -220,6 +220,12 @@ export default function Header() {
               >
                 Achievements
               </Link>
+              <Link
+                to="/blog"
+                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+              >
+                Blogs
+              </Link>
             </nav>
           </div>
         </Drawer>
