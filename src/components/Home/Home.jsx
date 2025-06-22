@@ -60,7 +60,7 @@ export default function Home() {
               theme ? "text-white" : "text-black"
             }`}
           >
-            Full Stack Developer
+            Full Stack Developer | Data Analyst 
           </span>
         </h2>
         <p className={`mt-10 ${theme ? "text-white" : "text-black"}`}>
