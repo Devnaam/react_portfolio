@@ -13,7 +13,7 @@ const Blog = () => {
 			preview:
 				"How my team and I built a secure, AI-assisted mapping platform in 72 hours to win the Locard Award at NASA’s global hackathon.",
 			tag: "Tech",
-			image: "https://images.unsplash.com/photo-1516841273335-e39b37888115", // Space-themed image
+			image: "./public/images/Nasablogimg1.jpeg", // Space-themed image
 			content: `
         <div class="space-y-6">
   <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
