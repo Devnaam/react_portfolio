@@ -96,12 +96,16 @@ const projects = [
 			"User Personalization",
 		],
 		images: [
-			"/assets/resumebuilder/resume1.png",
-			"/assets/resumebuilder/resume2.png",
-			"/assets/resumebuilder/resume3.png",
+			"/images/resumebuilder/resume1.png",
+			"/images/resumebuilder/resume2.png",
+			"/images/resumebuilder/resume3.png",
+			"/images/resumebuilder/resume4.png",
+			"/images/resumebuilder/resume5.png",
+			
+			
 		],
-		demoUrl: "https://resume-builder-ai.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/ResumeBuilder",
+		demoUrl: "https://v0-resume-builder-ui-design.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/Resume-Builder-",
 	},
 	{
 		id: 3,
@@ -144,7 +148,7 @@ const projects = [
 			"Buy/Hold/Sell",
 		],
 		images: [
-			"/assets/financeanalyzer/finance1.png",
+			"/images/financeanalyzer/finance1.png",
 			"/assets/financeanalyzer/finance2.png",
 			"/assets/financeanalyzer/finance3.png",
 		],
@@ -192,12 +196,12 @@ const projects = [
 			"Interactive Quiz",
 		],
 		images: [
-			"/assets/pathfinder/pathfinder1.png",
-			"/assets/pathfinder/pathfinder2.png",
-			"/assets/pathfinder/pathfinder3.png",
+			"/images/pathfinder/pathfinder1.png",
+			"/images/pathfinder/pathfinder2.png",
+			"/images/pathfinder/pathfinder3.png",
 		],
-		demoUrl: "https://pathfinder-career.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/Pathfinder",
+		demoUrl: "https://path-finder-ochre-pi.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/PathFinder-",
 	},
 	{
 		id: 5,
@@ -239,12 +243,13 @@ const projects = [
 			"User-Centric Design",
 		],
 		images: [
-			"/assets/typingtrainer/typing1.png",
-			"/assets/typingtrainer/typing2.png",
-			"/assets/typingtrainer/typing3.png",
+			"/images/typingtrainer/typing1.png",
+			"/images/typingtrainer/typing1.png",
+			"/images/typingtrainer/typing1.png",
+
 		],
 		demoUrl: "https://v0-typing-trainer-frontend.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/TypingTrainer",
+		githubUrl: "https://github.com/Devnaam/typying-practice-webapp",
 	},
 	{
 		id: 6,
@@ -294,12 +299,14 @@ const projects = [
 			"Food Sustainability",
 		],
 		images: [
-			"/assets/dishcovery/dishcovery1.png",
-			"/assets/dishcovery/dishcovery2.png",
-			"/assets/dishcovery/dishcovery3.png",
+			"/images/dishcovery/dishcovery2.png",
+			"/images/dishcovery/dishcovery1.png",
+			"/images/dishcovery/dishcovery3.png",
+			"/images/dishcovery/dishcovery4.png",
+			"/images/dishcovery/dishcovery5.png",
 		],
 		demoUrl: "https://dishcovery-ai.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/Dishcovery",
+		githubUrl: "https://github.com/Devnaam/Dishcovery-Ai",
 	},
 	{
 		id: 7,
@@ -347,12 +354,14 @@ const projects = [
 			"Personal Finance",
 		],
 		images: [
-			"/assets/marketmentor/marketmentor1.png",
-			"/assets/marketmentor/marketmentor2.png",
-			"/assets/marketmentor/marketmentor3.png",
+			"/images/marketmentor/marketmentor1.png",
+			"/images/marketmentor/marketmentor2.png",
+			"/images/marketmentor/marketmentor3.png",
+			"/images/marketmentor/marketmentor4.png",
+
 		],
-		demoUrl: "https://marketmentormoney.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/MarketMentorMoney",
+		demoUrl: "https://blog-web-app-chi.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/Blog-web-app",
 	},
 	{
 	id: 8,
