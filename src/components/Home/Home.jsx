@@ -83,10 +83,10 @@ export default function Home() {
 						theme ? "text-white" : "text-black"
 					}`}
 				>
-					About Me
+					{/* about Me */}
 				</h3>
-				{/* u can start the fresh code for abotut from here */}
-			</div>
+				{/* u can start the fresh code for about me from here  */}
+			</div> 
 		</section>
 	);
 }
