@@ -465,7 +465,7 @@ const Project = () => {
 											key={i}
 											src={img}
 											alt={`${project.title} ${i}`}
-											className="transition-opacity duration-700 ease-in-out object-contain w-full h-full"
+											className="transition-opacity duration-300 ease-in-out object-contain w-full h-full"
 											style={{
 												opacity: currentSlide[project.id] === i ? 1 : 0,
 												position:
