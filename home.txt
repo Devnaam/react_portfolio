@@ -97,3 +97,26 @@ export default function Home() {
     </section>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 	id: 2,
+	// 	title: "videoTube",
+	// 	description:
+	// 		"Built backend for a YouTube-like platform with Node.js and Express, handling video uploads, streaming, and user interactions. Used JWT for authentication, Cloudinary for video storage, and Multer for file handling. Designed a RESTful API for uploads, comments, and streaming, with MongoDB for data management.",
+	// 	tags: ["Node.js", "Express", "MongoDB", "REST API"],
+	// 	image: "/assets/videoTube.jpeg",
+	// 	demoUrl:
+	// 		"https://www.linkedin.com/posts/thecodecrusaderx_backenddevelopment-nodejs-expressjs-activity-7237829858423103488-D8ch?utm_source=share&utm_medium=member_desktoppppp",
+	// 	githubUrl: "https://github.com/Devnaam/videotube", // Replace with actual GitHub URL
+	// },

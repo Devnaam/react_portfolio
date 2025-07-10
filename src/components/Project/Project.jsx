@@ -1,73 +1,423 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const projects = [
 	{
 		id: 1,
-		title: "BiteBlend",
-		description:
-			"Built a full-stack app with React, Node, and MongoDB. Integrated JWT for authentication, Cloudinary for images, and used Redux for state. Designed a responsive UI with Material UI and Tailwind. Added Gimeni AI for recipes, with pagination and search in history.",
-		tags: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Redux"],
-		image: "/assets/BiteBlend.jpeg",
-		demoUrl: "https://recipefinder-frontend.onrender.commm/",
-		githubUrl: "https://github.com/Devnaam/biteblend", // Replace with actual GitHub URL
+		title: "RentFair",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Built a full-stack web application to bring transparency and fairness
+					to the rental housing market.
+				</li>
+				<li>
+					Developed using <strong>Next.js</strong> and{" "}
+					<strong>Tailwind CSS</strong> for a modern and responsive UI.
+				</li>
+				<li>
+					Integrated <strong>AI-based pricing</strong> to recommend fair rental
+					values in real-time.
+				</li>
+				<li>
+					Empowered students and job seekers to find verified, broker-free
+					accommodations.
+				</li>
+				<li>
+					Eliminated hidden costs and scams with a scam-free, user-first
+					approach.
+				</li>
+				<li>
+					Implemented <strong>location-based search</strong> functionality for
+					improved user experience.
+				</li>
+				<li>
+					Designed for both desktop and mobile with fully responsive layout and
+					UX-focused flow.
+				</li>
+			</ul>
+		),
+		tags: [
+			"Next.js",
+			"Tailwind CSS",
+			"AI Pricing",
+			"Real Estate",
+			"Student Housing",
+		],
+		images: [
+			"/assets/rentfair/rentfair1.png",
+			"/assets/rentfair/RentFair2.png",
+
+			"/assets/rentfair/RentFair3.png",
+		],
+		demoUrl: "https://rent-fair.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/RentFair",
 	},
 	{
 		id: 2,
-		title: "videoTube",
-		description:
-			"Built backend for a YouTube-like platform with Node.js and Express, handling video uploads, streaming, and user interactions. Used JWT for authentication, Cloudinary for video storage, and Multer for file handling. Designed a RESTful API for uploads, comments, and streaming, with MongoDB for data management.",
-		tags: ["Node.js", "Express", "MongoDB", "REST API"],
-		image: "/assets/videoTube.jpeg",
-		demoUrl:
-			"https://www.linkedin.com/posts/thecodecrusaderx_backenddevelopment-nodejs-expressjs-activity-7237829858423103488-D8ch?utm_source=share&utm_medium=member_desktoppppp",
-		githubUrl: "https://github.com/Devnaam/videotube", // Replace with actual GitHub URL
+		title: "ResumeBuilder",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Developed a dynamic <strong>AI-powered resume builder</strong> that
+					provides intelligent content suggestions based on user skills and
+					experience.
+				</li>
+				<li>
+					Integrated <strong>professional templates</strong> and layout styles
+					to cater to multiple industries and job roles.
+				</li>
+				<li>
+					Implemented real-time customization options for <strong>fonts</strong>
+					,<strong> colors</strong>, <strong>sections</strong>, and layout
+					structure.
+				</li>
+				<li>
+					Enabled <strong>multi-format resume exports</strong> including PDF,
+					Word, and plain text for universal compatibility.
+				</li>
+				<li>
+					Designed a clean and responsive UI with <strong>Tailwind CSS</strong>,
+					focused on accessibility and ease of use.
+				</li>
+				<li>
+					Used <strong>React</strong> for component-based architecture and
+					smooth UI updates.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"Tailwind CSS",
+			"AI Integration",
+			"Resume Templates",
+			"PDF Export",
+			"User Personalization",
+		],
+		images: [
+			"/assets/resumebuilder/resume1.png",
+			"/assets/resumebuilder/resume2.png",
+			"/assets/resumebuilder/resume3.png",
+		],
+		demoUrl: "https://resume-builder-ai.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/ResumeBuilder",
 	},
 	{
 		id: 3,
-		title: "Book Heaven",
-		description:
-			"Created a full-stack book store application featuring a React frontend styled with Tailwind CSS and a Node.js backend using Express. The app allows users to store and manage book details in MongoDB. Focused on creating a clean and responsive UI that enhances user experience while ensuring efficient data handling on the server side.",
-		tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-		image: "/assets/BookHeaven.jpeg",
-		demoUrl: "https://book-storeiii-mu-flax.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/book-heaven", // Replace with actual GitHub URL
+		title: "FinanceAnalyzer",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Built an advanced <strong>AI-powered financial analysis tool</strong>{" "}
+					that combines both fundamental and technical insights.
+				</li>
+				<li>
+					Enabled users to <strong>upload financial reports and charts</strong>{" "}
+					to extract key metrics and visual patterns.
+				</li>
+				<li>
+					Implemented smart recognition of chart patterns and financial
+					indicators to generate actionable <strong>Buy/Hold/Sell</strong>{" "}
+					recommendations.
+				</li>
+				<li>
+					Developed a responsive and intuitive interface for seamless data
+					uploads and result interpretation.
+				</li>
+				<li>
+					Focused on <strong>investment decision support</strong> by presenting
+					insights in a concise and strategic report format.
+				</li>
+				<li>
+					Used <strong>React</strong> and <strong>Tailwind CSS</strong> for
+					fast, clean UI rendering with AI integrations on the backend.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"Tailwind CSS",
+			"AI Insight",
+			"Financial Analysis",
+			"Pattern Recognition",
+			"Buy/Hold/Sell",
+		],
+		images: [
+			"/assets/financeanalyzer/finance1.png",
+			"/assets/financeanalyzer/finance2.png",
+			"/assets/financeanalyzer/finance3.png",
+		],
+		demoUrl: "https://finance-analyzer-ai.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/FinanceAnalyzer",
 	},
 	{
 		id: 4,
-		title: "weatherWise",
-		description:
-			"Developed a Weather App using HTML, CSS, and JavaScript that fetches real-time weather data from an external API and displays dynamic weather information. The app features a responsive UI, ensuring compatibility across different screen sizes and devices.",
-		tags: ["HTML", "CSS", "JavaScript", "API"],
-		image: "/assets/weatherWise.jpeg",
-		demoUrl: "https://weather-uuuuapp-sigma-one-22.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/weatherwise", // Replace with actual GitHub URL
+		title: "Pathfinder",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Built a personalized <strong>career guidance platform</strong> using{" "}
+					<strong>React</strong>, <strong>TypeScript</strong>, and{" "}
+					<strong>Gemini API</strong> for AI-driven recommendations.
+				</li>
+				<li>
+					Developed an <strong>interactive quiz engine</strong> to assess user
+					interests, preferences, and existing skills.
+				</li>
+				<li>
+					Generated <strong>tailored learning roadmaps</strong> with curated
+					resources for over 50+ career paths and 100+ in-demand skills.
+				</li>
+				<li>
+					Implemented category-wise skill tracks with{" "}
+					<strong>progress indicators</strong> and role-based filters.
+				</li>
+				<li>
+					Designed a responsive, modern UI with clean navigation to enhance
+					usability and engagement.
+				</li>
+				<li>
+					Empowered users with <strong>career insights</strong>, salary data,
+					and growth projections through smart content delivery.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"TypeScript",
+			"Gemini API",
+			"AI-Powered Guidance",
+			"Career Mapping",
+			"Interactive Quiz",
+		],
+		images: [
+			"/assets/pathfinder/pathfinder1.png",
+			"/assets/pathfinder/pathfinder2.png",
+			"/assets/pathfinder/pathfinder3.png",
+		],
+		demoUrl: "https://pathfinder-career.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/Pathfinder",
 	},
 	{
 		id: 5,
-		title: "Password-Pro",
-		description:
-			"Developed a Password Generator in React.js that allows users to generate secure passwords with customizable length and options for numbers and special characters. It includes a Copy feature for quick clipboard access, utilizing React hooks to manage state efficiently.",
-		tags: ["React", "JavaScript", "Tailwind CSS"],
-		image: "/assets/password-pro.jpeg",
-		demoUrl: "https://learninguu-reactjs-hazel.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/password-pro", // Replace with actual GitHub URL
+		title: "TypingTrainer",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Developed a responsive <strong>typing practice application</strong> to
+					help users improve speed and accuracy through real-time exercises.
+				</li>
+				<li>
+					Built using <strong>React</strong> and <strong>Tailwind CSS</strong>,
+					with a clean UI and intuitive user experience.
+				</li>
+				<li>
+					Implemented <strong>dynamic typing tests</strong> with instant
+					feedback, accuracy calculation, and words-per-minute (WPM) tracking.
+				</li>
+				<li>
+					Supports both <strong>beginner and advanced modes</strong>, with
+					randomized word sequences for varied practice.
+				</li>
+				<li>
+					Features a <strong>mistake highlighter</strong> and real-time word
+					progression to help users identify and improve weak areas.
+				</li>
+				<li>
+					Optimized for desktop and mobile devices with smooth performance and
+					lightweight architecture.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"Tailwind CSS",
+			"Typing Practice",
+			"Performance Tracking",
+			"Speed & Accuracy",
+			"User-Centric Design",
+		],
+		images: [
+			"/assets/typingtrainer/typing1.png",
+			"/assets/typingtrainer/typing2.png",
+			"/assets/typingtrainer/typing3.png",
+		],
+		demoUrl: "https://v0-typing-trainer-frontend.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/TypingTrainer",
 	},
 	{
 		id: 6,
-		title: "Todo App",
-		description:
-			"Developed a Todo App using React and the Context API for state management. The app allows users to add, edit, and delete tasks with a clean and responsive user interface, efficiently handling global state without prop drilling.",
-		tags: ["React", "Context API", "JavaScript"],
-		image: "/assets/Todo.jpeg",
-		demoUrl: "https://learninguuuu-reactjs-gnq2.vercel.app/",
-		githubUrl: "https://github.com/Devnaam/todo-app", // Replace with actual GitHub URL
+		title: "Dishcovery",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Built <strong>Dishcovery</strong>, an AI-powered recipe finder that
+					suggests meals based on ingredients users already have — promoting
+					zero-waste cooking.
+				</li>
+				<li>
+					Implemented <strong>ingredient-based recipe suggestions</strong> using
+					the <strong>Gemini API</strong> to deliver personalized culinary
+					results.
+				</li>
+				<li>
+					Introduced a <strong>“Leftover Magic”</strong> feature to help users
+					transform everyday leftovers into exciting, delicious meals.
+				</li>
+				<li>
+					Developed a unique{" "}
+					<strong>“Surprise Me” global cuisine explorer</strong> that introduces
+					users to international recipes and diverse flavors.
+				</li>
+				<li>
+					Enabled recipe saving and rating functionality for quick access to
+					user favorites and repeat creations.
+				</li>
+				<li>
+					Built with <strong>React</strong>, <strong>Tailwind CSS</strong>, and{" "}
+					<strong>Context API</strong> for clean state management and responsive
+					UI.
+				</li>
+				<li>
+					Focused on <strong>user experience and sustainability</strong> by
+					minimizing food waste and making smart cooking accessible to all.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"Tailwind CSS",
+			"Gemini API",
+			"AI Recipes",
+			"Zero-Waste Cooking",
+			"Food Sustainability",
+		],
+		images: [
+			"/assets/dishcovery/dishcovery1.png",
+			"/assets/dishcovery/dishcovery2.png",
+			"/assets/dishcovery/dishcovery3.png",
+		],
+		demoUrl: "https://dishcovery-ai.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/Dishcovery",
 	},
+	{
+		id: 7,
+		title: "Market Mentor Money",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Created a high-performance <strong>blog platform</strong> focused on
+					stock market insights, chart analysis, and personal finance literacy.
+				</li>
+				<li>
+					Designed a <strong>vibrant and modern UI</strong> with smooth
+					animations, responsive layouts, and seamless UX across all devices.
+				</li>
+				<li>
+					Implemented <strong>Markdown/CMS-based dynamic blogs</strong> with
+					sticky Table of Contents, scroll tracking, and “Back to Top” features.
+				</li>
+				<li>
+					Integrated <strong>social sharing</strong> (WhatsApp, LinkedIn,
+					Facebook, Telegram) and related posts for reader engagement.
+				</li>
+				<li>
+					Built a <strong>newsletter signup & contact form</strong> with email
+					validation and custom styling.
+				</li>
+				<li>
+					Used <strong>Supabase (PostgreSQL + Auth)</strong> for secure blog
+					management and scalable backend storage.
+				</li>
+				<li>
+					Optimized fully for <strong>SEO</strong> and performance with{" "}
+					<strong>Vercel hosting</strong>, lazy loading, and responsive meta
+					tags.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"TypeScript",
+			"Tailwind CSS",
+			"Supabase",
+			"Blog Platform",
+			"SEO Optimization",
+			"Personal Finance",
+		],
+		images: [
+			"/assets/marketmentor/marketmentor1.png",
+			"/assets/marketmentor/marketmentor2.png",
+			"/assets/marketmentor/marketmentor3.png",
+		],
+		demoUrl: "https://marketmentormoney.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/MarketMentorMoney",
+	},
+	{
+	id: 8,
+	title: "Bill Decoder",
+	description: (
+		<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+			<li>
+				Created <strong>Bill Decoder</strong>, an AI-powered legal literacy platform that simplifies complex Indian parliamentary bills into plain, understandable language.
+			</li>
+			<li>
+				Utilized <strong>Google Gemini API</strong> to break down legal jargon and provide contextual explanations for better comprehension.
+			</li>
+			<li>
+				Developed a <strong>personalized dashboard</strong> with on-demand assistance for difficult words, definitions, and legal terms.
+			</li>
+			<li>
+				Enabled <strong>multiple input options</strong>: upload PDFs, paste bill text, submit image scans, or provide bill links for AI-based processing.
+			</li>
+			<li>
+				Implemented a <strong>Bill Discovery System</strong> with sections like “Recent Bills,” “Popular Bills,” and “Trending Bills” to improve civic engagement.
+			</li>
+			<li>
+				Built a responsive and user-focused interface using <strong>React</strong>, <strong>Tailwind CSS</strong>, and <strong>React Hook Form</strong> for seamless form handling.
+			</li>
+			<li>
+				Used document parsing tools for <strong>PDF and image text extraction</strong>, enhancing accessibility for diverse content formats.
+			</li>
+		</ul>
+	),
+	tags: [
+		"React",
+		"Tailwind CSS",
+		"Gemini API",
+		"AI Simplification",
+		"Legal Tech",
+		"PDF & OCR Parsing",
+		"Civic Engagement",
+	],
+	images: [
+		"/assets/billdecoder/billdecoder1.png",
+		"/assets/billdecoder/billdecoder2.png",
+		"/assets/billdecoder/billdecoder3.png",
+	],
+	demoUrl: "https://bill-decoder-ai.vercel.app/",
+	githubUrl: "https://github.com/Devnaam/BillDecoder",
+}
+
 ];
 
 const Project = () => {
 	const theme = useSelector((state) => state.themeChanger.value);
+	const [currentSlide, setCurrentSlide] = useState({});
+
+	useEffect(() => {
+		const intervals = projects.map((project) =>
+			setInterval(() => {
+				setCurrentSlide((prev) => {
+					const current = prev[project.id] ?? 0;
+					const nextIndex = (current + 1) % project.images.length;
+					return { ...prev, [project.id]: nextIndex };
+				});
+			}, 3000)
+		);
+		return () => intervals.forEach(clearInterval);
+	}, []);
 
 	return (
 		<div
@@ -85,7 +435,7 @@ const Project = () => {
 					My Projects
 				</motion.h1>
 
-				{/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{projects.map((project) => (
 						<motion.div
 							key={project.id}
@@ -99,24 +449,39 @@ const Project = () => {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<img
-									src={project.image}
-									alt={project.title}
-									className="w-full h-48 object-cover"
-								/>
+								{/* here the code for image section has started */}
+								<div className="relative w-full aspect-video overflow-hidden flex items-center justify-center">
+									{project.images.map((img, i) => (
+										<motion.img
+											key={i}
+											src={img}
+											alt={`${project.title} ${i}`}
+											className="transition-opacity duration-700 ease-in-out object-contain w-full h-full"
+											style={{
+												opacity: currentSlide[project.id] === i ? 1 : 0,
+												position:
+													currentSlide[project.id] === i
+														? "relative"
+														: "absolute",
+											}}
+										/>
+									))}
+								</div>
+								{/* image section code ends here */}
 							</a>
 							<div className="p-6">
-								<h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+								<h2 className="text-3xl font-semibold text-black-800 dark:text-gray-100 mb-2">
 									{project.title}
 								</h2>
 								<p className="text-gray-600 dark:text-gray-400 mb-4">
 									{project.description}
 								</p>
+
 								<div className="flex flex-wrap gap-2 mb-4">
 									{project.tags.map((tag) => (
 										<span
 											key={tag}
-											className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-sm rounded-full"
+											className="px-2 py-1 bg-gray-100 dark:bg-indigo-900 text-green-800 dark:text-indigo-200 text-sm rounded-full"
 										>
 											{tag}
 										</span>
@@ -198,8 +563,7 @@ const Project = () => {
 							</div>
 						</motion.div>
 					))}
-				</div> */}
-				<h1>will be updated soon !</h1>
+				</div>
 			</div>
 		</div>
 	);
