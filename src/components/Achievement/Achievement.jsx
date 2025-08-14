@@ -7,6 +7,7 @@ import nasa_space_app from "/assets/NASA_spaceApp.jpg";
 import arduino1 from "/assets/ardunio1.jpg";
 import arduino2 from "/assets/ardunio2.jpg";
 import acm2 from "/assets/acm.png";
+import agai1 from "public\images\agentic_ai\ag ai im 4.webp"
 import { useSelector } from "react-redux";
 
 function Achievement() {
@@ -78,28 +79,47 @@ function Achievement() {
 
 			{/* NEW ACM Carousel Card */}
 
-			
 			<div className="w-full sm:w-[320px] mx-auto bg-white dark:bg-[#1A1A1A] rounded-xl shadow-md overflow-hidden">
 				<div className="relative w-full overflow-hidden h-72">
-  <div
-    className="flex transition-transform duration-700 ease-in-out"
-    style={{ transform: `translateX(-${index * 100}%)` }}
-  >
-    {acmImages.map((image, i) => (
-      <div
-        key={i}
-        className="w-full flex justify-center items-center shrink-0"
-      >
-        <img
-          src={image}
-          alt={`Arduino Project ${i}`}
-          className="h-72 object-contain"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+					<div
+						className="flex transition-transform duration-700 ease-in-out"
+						style={{ transform: `translateX(-${index * 100}%)` }}
+					>
+						{acmImages.map((image, i) => (
+							<div
+								key={i}
+								className="w-full flex justify-center items-center shrink-0"
+							>
+								<img
+									src={image}
+									alt={`Arduino Project ${i}`}
+									className="h-72 object-contain"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
 
+				<div className="p-4">
+					<h3 className="text-xl font-bold text-black dark:text-white">
+						Arduino Water Automation Winner — Mar 2023
+					</h3>
+					<p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+						Awarded the first prize for creating an Arduino-based water
+						automation system that autonomously refills tanks and manages motors
+						based on water levels.
+					</p>
+					<a
+						href="https://www.linkedin.com/in/raj-priyadershi-56a256282/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-block mt-4 text-blue-500 dark:text-blue-400 font-semibold hover:underline"
+					>
+						SHARE
+					</a>
+				</div>
+
+				{/* {agenitc ai card starts here} */}
 				<div className="p-4">
 					<h3 className="text-xl font-bold text-black dark:text-white">
 						Arduino Water Automation Winner — Mar 2023
