@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresence
 import { useSelector } from "react-redux";
 
 const projects = [
@@ -101,8 +101,6 @@ const projects = [
 			"/images/resumebuilder/resume3.png",
 			"/images/resumebuilder/resume4.png",
 			"/images/resumebuilder/resume5.png",
-			
-			
 		],
 		demoUrl: "https://v0-resume-builder-ui-design.vercel.app/",
 		githubUrl: "https://github.com/Devnaam/Resume-Builder-",
@@ -246,7 +244,6 @@ const projects = [
 			"/images/typingtrainer/typing1.png",
 			"/images/typingtrainer/typing1.png",
 			"/images/typingtrainer/typing1.png",
-
 		],
 		demoUrl: "https://v0-typing-trainer-frontend.vercel.app/",
 		githubUrl: "https://github.com/Devnaam/typying-practice-webapp",
@@ -358,62 +355,75 @@ const projects = [
 			"/images/marketmentor/marketmentor2.png",
 			"/images/marketmentor/marketmentor3.png",
 			"/images/marketmentor/marketmentor4.png",
-
 		],
 		demoUrl: "https://blog-web-app-chi.vercel.app/",
 		githubUrl: "https://github.com/Devnaam/Blog-web-app",
 	},
 	{
-	id: 8,
-	title: "Bill Decoder",
-	description: (
-		<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
-			<li>
-				Created <strong>Bill Decoder</strong>, an AI-powered legal literacy platform that simplifies complex Indian parliamentary bills into plain, understandable language.
-			</li>
-			<li>
-				Utilized <strong>Google Gemini API</strong> to break down legal jargon and provide contextual explanations for better comprehension.
-			</li>
-			<li>
-				Developed a <strong>personalized dashboard</strong> with on-demand assistance for difficult words, definitions, and legal terms.
-			</li>
-			<li>
-				Enabled <strong>multiple input options</strong>: upload PDFs, paste bill text, submit image scans, or provide bill links for AI-based processing.
-			</li>
-			<li>
-				Implemented a <strong>Bill Discovery System</strong> with sections like “Recent Bills,” “Popular Bills,” and “Trending Bills” to improve civic engagement.
-			</li>
-			<li>
-				Built a responsive and user-focused interface using <strong>React</strong>, <strong>Tailwind CSS</strong>, and <strong>React Hook Form</strong> for seamless form handling.
-			</li>
-			<li>
-				Used document parsing tools for <strong>PDF and image text extraction</strong>, enhancing accessibility for diverse content formats.
-			</li>
-		</ul>
-	),
-	tags: [
-		"React",
-		"Tailwind CSS",
-		"Gemini API",
-		"AI Simplification",
-		"Legal Tech",
-		"PDF & OCR Parsing",
-		"Civic Engagement",
-	],
-	images: [
-		"/assets/billdecoder/billdecoder1.png",
-		"/assets/billdecoder/billdecoder2.png",
-		"/assets/billdecoder/billdecoder3.png",
-	],
-	demoUrl: "https://bill-decoder-ai.vercel.app/",
-	githubUrl: "https://github.com/Devnaam/BillDecoder",
-}
-
+		id: 8,
+		title: "Bill Decoder",
+		description: (
+			<ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+				<li>
+					Created <strong>Bill Decoder</strong>, an AI-powered legal literacy
+					platform that simplifies complex Indian parliamentary bills into
+					plain, understandable language.
+				</li>
+				<li>
+					Utilized <strong>Google Gemini API</strong> to break down legal jargon
+					and provide contextual explanations for better comprehension.
+				</li>
+				<li>
+					Developed a <strong>personalized dashboard</strong> with on-demand
+					assistance for difficult words, definitions, and legal terms.
+				</li>
+				<li>
+					Enabled <strong>multiple input options</strong>: upload PDFs, paste
+					bill text, submit image scans, or provide bill links for AI-based
+					processing.
+				</li>
+				<li>
+					Implemented a <strong>Bill Discovery System</strong> with sections
+					like “Recent Bills,” “Popular Bills,” and “Trending Bills” to improve
+					civic engagement.
+				</li>
+				<li>
+					Built a responsive and user-focused interface using{" "}
+					<strong>React</strong>, <strong>Tailwind CSS</strong>, and{" "}
+					<strong>React Hook Form</strong> for seamless form handling.
+				</li>
+				<li>
+					Used document parsing tools for{" "}
+					<strong>PDF and image text extraction</strong>, enhancing
+					accessibility for diverse content formats.
+				</li>
+			</ul>
+		),
+		tags: [
+			"React",
+			"Tailwind CSS",
+			"Gemini API",
+			"AI Simplification",
+			"Legal Tech",
+			"PDF & OCR Parsing",
+			"Civic Engagement",
+		],
+		images: [
+			"/assets/billdecoder/billdecoder1.png",
+			"/assets/billdecoder/billdecoder2.png",
+			"/assets/billdecoder/billdecoder3.png",
+		],
+		demoUrl: "https://bill-decoder-ai.vercel.app/",
+		githubUrl: "https://github.com/Devnaam/BillDecoder",
+	},
 ];
 
 const Project = () => {
 	const theme = useSelector((state) => state.themeChanger.value);
 	const [currentSlide, setCurrentSlide] = useState({});
+
+	// NEW: State to manage which cards are expanded
+	const [expandedCards, setExpandedCards] = useState({});
 
 	useEffect(() => {
 		const intervals = projects.map((project) =>
@@ -427,6 +437,14 @@ const Project = () => {
 		);
 		return () => intervals.forEach(clearInterval);
 	}, []);
+
+	// NEW: Handler to toggle the description visibility
+	const handleToggleDescription = (projectId) => {
+		setExpandedCards((prev) => ({
+			...prev, // Keep the state of other cards
+			[projectId]: !prev[projectId], // Flip the state for the clicked card
+		}));
+	};
 
 	return (
 		<div
@@ -458,7 +476,7 @@ const Project = () => {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								{/* here the code for image section has started */}
+								{/* Image section remains the same */}
 								<div className="relative w-full aspect-video overflow-hidden flex items-center justify-center">
 									{project.images.map((img, i) => (
 										<motion.img
@@ -476,52 +494,89 @@ const Project = () => {
 										/>
 									))}
 								</div>
-								{/* image section code ends here */}
 							</a>
-							<div className="p-6">
-								<h2 className="text-3xl font-semibold text-black-800 dark:text-gray-100 mb-2">
-									{project.title}
-								</h2>
-								<p className="text-gray-600 dark:text-gray-400 mb-4">
-									{project.description}
-								</p>
-
-								<div className="flex flex-wrap gap-2 mb-4">
+							<div className="p-6 flex flex-col flex-grow">
+								{" "}
+								{/* Added flex classes for layout */}
+								<div className="flex justify-between items-center mb-2">
+									<h2 className="text-2xl font-semibold text-black-800 dark:text-gray-100">
+										{project.title}
+									</h2>
+									<button
+										onClick={() => handleToggleDescription(project.id)}
+										className="flex items-center gap-2 px-3 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+										aria-expanded={!!expandedCards[project.id]}
+									>
+										<span>
+											{expandedCards[project.id] ? "Hide" : "Details"}
+										</span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											strokeWidth={3}
+											stroke="currentColor"
+											className={`w-4 h-4 transition-transform duration-300 ${
+												expandedCards[project.id] ? "rotate-180" : ""
+											}`}
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="m19.5 8.25-7.5 7.5-7.5-7.5"
+											/>
+										</svg>
+									</button>
+								</div>
+								<AnimatePresence>
+									{expandedCards[project.id] && (
+										<motion.div
+											initial={{ opacity: 0, height: 0 }}
+											animate={{ opacity: 1, height: "auto" }}
+											exit={{ opacity: 0, height: 0 }}
+											transition={{ duration: 0.4, ease: "easeInOut" }}
+											className="overflow-hidden"
+										>
+											{project.description}
+										</motion.div>
+									)}
+								</AnimatePresence>
+								<div className="flex flex-wrap gap-2 mt-4 mb-4">
 									{project.tags.map((tag) => (
 										<span
 											key={tag}
-											className="px-2 py-1 bg-gray-100 dark:bg-indigo-900 text-green-800 dark:text-indigo-200 text-sm rounded-full"
+											className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-xs font-medium rounded-full"
 										>
 											{tag}
 										</span>
 									))}
 								</div>
-								<div className="flex flex-wrap gap-4 mb-4">
+								{/* This div pushes the buttons to the bottom */}
+								<div className="flex-grow" />
+								{/* ACTION BUTTONS: Live Demo, GitHub, and Share */}
+								<div className="flex flex-wrap items-center gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
 									{project.demoUrl && (
 										<a
 											href={project.demoUrl}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="relative inline-flex items-center justify-center p-0.5 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
-											aria-label={`View live demo of ${project.title}`}
+											className="flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
 										>
-											<span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent flex items-center">
-												<svg
-													className="w-5 h-5 mr-2"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth="2"
-														d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-													/>
-												</svg>
-												Live Demo
-											</span>
+											<svg
+												className="w-5 h-5"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth="2"
+													d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+												></path>
+											</svg>
+											Live Demo
 										</a>
 									)}
 									{project.githubUrl && (
@@ -529,27 +584,22 @@ const Project = () => {
 											href={project.githubUrl}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="relative inline-flex items-center justify-center p-0.5 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
-											aria-label={`View GitHub repository for ${project.title}`}
+											className="flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
 										>
-											<span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent flex items-center">
-												<svg
-													className="w-5 h-5 mr-2"
-													fill="currentColor"
-													viewBox="0 0 24 24"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-												</svg>
-												GitHub
-											</span>
+											<svg
+												className="w-5 h-5"
+												fill="currentColor"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+											</svg>
+											GitHub
 										</a>
 									)}
-								</div>
-								<div className="mt-4">
 									<button
 										onClick={() => sharePost(project.title, project.demoUrl)}
-										className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-full shadow-lg transition duration-300 ease-in-out group hover:animate-pulse-custom"
+										className="flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
 										aria-label={`Share ${project.title}`}
 									>
 										<svg
@@ -564,7 +614,7 @@ const Project = () => {
 												strokeLinejoin="round"
 												strokeWidth="2"
 												d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-											/>
+											></path>
 										</svg>
 										Share
 									</button>
@@ -578,6 +628,8 @@ const Project = () => {
 	);
 };
 
+// sharePost function remains the same
+// ...
 const sharePost = (title, url) => {
 	const shareData = {
 		title: title,
