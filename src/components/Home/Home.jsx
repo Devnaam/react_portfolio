@@ -1,11 +1,50 @@
-import React from "react";
-// import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../App.css";
 import { useSelector } from "react-redux";
 
+// Array of titles for the typing animation
+const titles = ["Full Stack Developer", "Data Analyst", "Data Scientist"];
+
 export default function Home() {
 	const theme = useSelector((state) => state.themeChanger.value);
-	console.log(theme);
+
+	// State hooks for the typing animation
+	const [titleIndex, setTitleIndex] = useState(0); // Index for which title to show
+	const [text, setText] = useState(""); // The current text being displayed
+	const [isDeleting, setIsDeleting] = useState(false); // To check if we are deleting text
+
+	useEffect(() => {
+		const currentTitle = titles[titleIndex];
+		let timeout;
+
+		// Logic to handle typing or deleting
+		if (isDeleting) {
+			// If deleting, remove one character
+			timeout = setTimeout(() => {
+				setText(currentTitle.substring(0, text.length - 1));
+			}, 100); // Faster speed for deleting
+		} else {
+			// If typing, add one character
+			timeout = setTimeout(() => {
+				setText(currentTitle.substring(0, text.length + 1));
+			}, 150);
+		}
+
+		// When the title is fully typed, pause, then start deleting
+		if (!isDeleting && text === currentTitle) {
+			clearTimeout(timeout); // clear the typing timeout
+			timeout = setTimeout(() => setIsDeleting(true), 2000); // Wait 2s
+		}
+
+		// When the title is fully deleted, move to the next title
+		else if (isDeleting && text === "") {
+			setIsDeleting(false);
+			setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+		}
+
+		// Cleanup function to clear the timeout
+		return () => clearTimeout(timeout);
+	}, [text, isDeleting, titleIndex]);
 
 	return (
 		<section>
@@ -35,12 +74,15 @@ export default function Home() {
 						<span className="sm:hidden">
 							<br />
 						</span>
+						{/* MODIFIED SPAN FOR ANIMATED TEXT */}
 						<span
-							className={`sm:block text-xl mt-5 ${
+							className={`sm:block text-xl mt-5 h-7 ${
+								// Set a fixed height (h-7) to prevent layout shifts
 								theme ? "text-white" : "text-black"
 							}`}
 						>
-							Full Stack Developer | Data Analyst | Data Scientist
+							{text}
+							<span className="animate-blink">|</span> {/* Blinking cursor */}
 						</span>
 					</h2>
 					<p className={`mt-10 ${theme ? "text-white" : "text-black"}`}>
@@ -66,6 +108,7 @@ export default function Home() {
 					<center>
 						<img
 							src="/assets/me.jpg"
+							alt="Devnaam's profile" // Added alt text for accessibility
 							className="mt-4 h-[200px] w-[200px] rounded-full object-cover md:w-[400px] md:h-[400px] md:hover:h-[450px] md:hover:w-[450px] transition-all duration-300 ease-in-out animate-scale shadow-2xl"
 						/>
 					</center>
@@ -86,7 +129,7 @@ export default function Home() {
 					{/* about Me */}
 				</h3>
 				{/* u can start the fresh code for about me from here  */}
-			</div> 
+			</div>
 		</section>
 	);
 }

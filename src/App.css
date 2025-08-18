@@ -1,34 +1,41 @@
- #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  /* background-color: rgb(18, 17, 17); */
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	/* background-color: rgb(18, 17, 17); */
 }
 
 .dark {
-  background-color: black;
+	background-color: black;
 }
 .light {
-  background-color: white;
+	background-color: white;
 }
 
-
-
-
 @keyframes scaleImage {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.08);
+	}
 }
 
 .animate-scale {
-  animation: scaleImage 3s infinite ease-in-out;
+	animation: scaleImage 3s infinite ease-in-out;
 }
 
 .animate-scale:hover {
-  animation-play-state: paused;
+	animation-play-state: paused;
 }
 
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+.animate-blink {
+	animation: blink 1s step-end infinite;
+}
