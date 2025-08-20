@@ -646,7 +646,7 @@ const sharePost = (title, url) => {
 			.then(() => {
 				alert("Link copied to clipboard!");
 			})
-			.catch((err) => {
+			.catch((err) => { r
 				console.error("Copy failed:", err);
 				alert("Failed to copy link. Please copy manually: " + shareData.url);
 			});
