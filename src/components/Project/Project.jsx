@@ -416,6 +416,59 @@ const projects = [
 		demoUrl: "https://bill-decoder-ai.vercel.app/",
 		githubUrl: "https://github.com/Devnaam/BillDecoder",
 	},
+	{
+  id: 9,
+  title: "Book Recommendation Platform",
+  description: (
+    <ul className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed tracking-wide list-disc list-inside space-y-2">
+      <li>
+        Built a <strong>Book Recommendation Platform</strong>, a full-stack web app
+        to search, explore, and discover books with personalized suggestions.
+      </li>
+      <li>
+        Developed advanced <strong>search functionality</strong> with filters like
+        author, title, genre, and publication year for precise discovery.
+      </li>
+      <li>
+        Added <strong>category-based recommendations</strong> and planned expansion
+        for “Popular” and “Trending” book sections.
+      </li>
+      <li>
+        Integrated a <strong>book database with metadata</strong> (title, author,
+        synopsis, cover images) for richer browsing experience.
+      </li>
+      <li>
+        Created a responsive and modern UI using{" "}
+        <strong>React (Vite)</strong> and <strong>Tailwind CSS</strong>.
+      </li>
+      <li>
+        Built backend APIs with <strong>FastAPI</strong> for book search,
+        recommendations, and categories, connected to <strong>MongoDB</strong>.
+      </li>
+      <li>
+        Designed a modular structure with a clear roadmap for features like
+        “Book Detail Page” and “More Like This” recommendations.
+      </li>
+    </ul>
+  ),
+  tags: [
+    "React",
+    "Tailwind CSS",
+    "FastAPI",
+    "MongoDB",
+    "Book Recommendations",
+    "Search Filters",
+    "Full Stack",
+  ],
+  images: [
+    "/assets/bookrec/bookrec1.png",
+    "/assets/bookrec/bookrec2.png",
+    "/assets/bookrec/bookrec3.png",
+  ],
+  demoUrl: "#",
+  githubUrl: "#",
+}
+
 ];
 
 const Project = () => {
