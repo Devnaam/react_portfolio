@@ -33,7 +33,7 @@ export const projects = [
       "Natural language insights"
     ],
     technologies: ["React", "Node.js", "Gemini API", "MongoDB"],
-    images: ["/public/images/agentic_ai/WhatsApp Image 2025-08-14 at 21.48.10_a97ce783.jpg"],
+    images: ["/images/agentic_ai/WhatsApp Image 2025-08-14 at 21.48.10_a97ce783.jpg"],
     liveLink: "https://inventory-ai.vercel.app",
     githubLink: "https://github.com/yourusername/inventory-ai",
     featured: true,

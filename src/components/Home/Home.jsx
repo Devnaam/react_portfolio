@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import me from "/assets/me.jpg";
 import { motion } from "framer-motion";
 
+import TrustBadges from "../TrustBadges/TrustBadges";
+import Testimonials from "../Testimonials/Testimonials";
+import Pricing from "../Pricing/Pricing";
+import FAQ from "../FAQ/FAQ";
+import LeadMagnet from "../LeadMagnet/LeadMagnet";
+
+
 function Home() {
   const theme = useSelector((state) => state.themeChanger.value);
 
@@ -259,6 +266,11 @@ function Home() {
           </button>
         </Link>
       </motion.div>
+      <TrustBadges />
+      <LeadMagnet />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
     </div>
   );
 }
