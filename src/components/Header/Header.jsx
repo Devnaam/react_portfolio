@@ -28,208 +28,288 @@ export default function Header() {
   const dark = () => {
     document.querySelector("body").setAttribute("class", "dark");
   };
+
   const light = () => {
     document.querySelector("body").setAttribute("class", "light");
   };
 
-  {
-    theme ? dark() : light();
-  }
+  theme ? dark() : light();
 
   const dispatch = useDispatch();
-
   const toggleThemeButton = () => {
     dispatch(toggleTheme());
   };
 
   return (
-    <header className={`shadow sticky z-50 top-0 `}>
-      <nav
-        className={`border-gray-200 px-4 lg:px-6 py-2.5 ${
-          theme ? "bg-[#1A1A1A]" : "bg-gray-100 "
-        } rounded-xl`}
-      >
-        <div className="flex justify-between items-center mx-auto max-w-screen-xl">
-          <div>
-            <Link to="/">
-              <span className={`${theme ? "text-white" : "text-black"}`}>
-                Proups
-              </span>
-            </Link>
-          </div>
-
-          <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
-            <ul className="flex mt-4 font-medium lg:space-x-6 lg:mt-0">
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/skills"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Skills
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/projects"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Projects
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Contact
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/achievements"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Achievements
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/blog"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${
-                      isActive ? "text-orange-700" : "text-green-800"
-                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                  }
-                >
-                  Blog
-                </NavLink>
-              </li>
-              <li>
-                <button onClick={toggleThemeButton}>
-                  {theme ? (
-                    <MdOutlineLightMode size={30} className="text-white" />
-                  ) : (
-                    <MdDarkMode size={30} />
-                  )}
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div className="md:hidden">
-            <IconButton
-              onClick={toggleDrawer(true)}
-              sx={{ color: theme ? "white" : "black" }}
+    <header
+      className={`sticky top-0 z-50 ${
+        theme ? "bg-black" : "bg-white"
+      } transition-colors duration-500 shadow-md`}
+    >
+      <nav className="flex items-center justify-between py-4 px-4 lg:px-8">
+        {/* Logo */}
+        <Link to="/">
+          <div className="flex items-center gap-2">
+            <h1
+              className={`text-2xl lg:text-3xl font-bold ${
+                theme ? "text-white" : "text-black"
+              }`}
             >
-              <MenuIcon />
-            </IconButton>
+              Proups
+            </h1>
           </div>
-        </div>
-        <Drawer
-          anchor="right"
-          open={isOpen}
-          onClose={toggleDrawer(false)}
-          sx={{
-            width: 250,
-            "& .MuiDrawer-paper": {
-              backgroundColor: theme ? "black" : "white", 
-              color: theme ? "white" : "black", 
-            },
-          }}
-          ModalProps={{
-            keepMounted: true,
-          }}
-        >
-          <div
-            className="flex flex-col h-full w-full p-4 "
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <button onClick={toggleThemeButton} className="text-center m-4">
-              {theme ? (
-                <MdOutlineLightMode size={30} className="text-white" />
-              ) : (
-                <MdDarkMode size={30} />
-              )}
+        </Link>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden lg:flex items-center gap-8 text-lg font-semibold">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-red-500"
+                    : theme
+                    ? "text-white hover:text-red-400"
+                    : "text-black hover:text-red-500"
+                } transition-colors duration-300`
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/skills"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-red-500"
+                    : theme
+                    ? "text-white hover:text-red-400"
+                    : "text-black hover:text-red-500"
+                } transition-colors duration-300`
+              }
+            >
+              Skills
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-red-500"
+                    : theme
+                    ? "text-white hover:text-red-400"
+                    : "text-black hover:text-red-500"
+                } transition-colors duration-300`
+              }
+            >
+              Projects
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/achievements"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-red-500"
+                    : theme
+                    ? "text-white hover:text-red-400"
+                    : "text-black hover:text-red-500"
+                } transition-colors duration-300`
+              }
+            >
+              Achievements
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-red-500"
+                    : theme
+                    ? "text-white hover:text-red-400"
+                    : "text-black hover:text-red-500"
+                } transition-colors duration-300`
+              }
+            >
+              Blog
+            </NavLink>
+          </li>
+        </ul>
+
+        {/* Desktop CTA + Theme Toggle */}
+        <div className="hidden lg:flex items-center gap-4">
+          <Link to="/contact">
+            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md font-semibold transition-all duration-300 transform hover:scale-105">
+              Get Quote
             </button>
-            <Divider
-              sx={{
-                borderBottomWidth: 3,
-                borderColor: theme ? "white" : "black",
-                fontWeight: "bold",
-              }}
-            />
-            <nav className="space-y-4 flex flex-col mt-6">
-              <Link
+          </Link>
+
+          <button
+            onClick={toggleThemeButton}
+            className={`p-2 rounded-full ${
+              theme
+                ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
+                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+            } transition-all duration-300`}
+          >
+            {theme ? (
+              <MdOutlineLightMode className="text-2xl" />
+            ) : (
+              <MdDarkMode className="text-2xl" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu Button + Theme Toggle */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <button
+            onClick={toggleThemeButton}
+            className={`p-2 rounded-full ${
+              theme
+                ? "bg-gray-800 text-yellow-400"
+                : "bg-gray-200 text-gray-800"
+            }`}
+          >
+            {theme ? (
+              <MdOutlineLightMode className="text-xl" />
+            ) : (
+              <MdDarkMode className="text-xl" />
+            )}
+          </button>
+
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={toggleDrawer(true)}
+          >
+            <MenuIcon className={theme ? "text-white" : "text-black"} />
+          </IconButton>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={isOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          style: {
+            backgroundColor: theme ? "#000000" : "#ffffff",
+            color: theme ? "#ffffff" : "#000000",
+            width: "250px",
+          },
+        }}
+      >
+        <div className="p-6">
+          <h2 className="text-2xl font-bold mb-6">Menu</h2>
+          <Divider className={theme ? "bg-gray-700" : "bg-gray-300"} />
+
+          <ul className="space-y-4 mt-6 text-lg font-semibold">
+            <li>
+              <NavLink
                 to="/"
-                className={`block text-xl hover:text-white  text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+                onClick={toggleDrawer(false)}
+                className={({ isActive }) =>
+                  `block py-2 ${
+                    isActive
+                      ? "text-red-500"
+                      : theme
+                      ? "text-white"
+                      : "text-black"
+                  }`
+                }
               >
                 Home
-              </Link>
-
-              <Link
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/skills"
-                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+                onClick={toggleDrawer(false)}
+                className={({ isActive }) =>
+                  `block py-2 ${
+                    isActive
+                      ? "text-red-500"
+                      : theme
+                      ? "text-white"
+                      : "text-black"
+                  }`
+                }
               >
                 Skills
-              </Link>
-
-              <Link
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/projects"
-                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+                onClick={toggleDrawer(false)}
+                className={({ isActive }) =>
+                  `block py-2 ${
+                    isActive
+                      ? "text-red-500"
+                      : theme
+                      ? "text-white"
+                      : "text-black"
+                  }`
+                }
               >
                 Projects
-              </Link>
-              <Link
-                to="/contact"
-                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
-              >
-                Contact me
-              </Link>
-              <Link
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/achievements"
-                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+                onClick={toggleDrawer(false)}
+                className={({ isActive }) =>
+                  `block py-2 ${
+                    isActive
+                      ? "text-red-500"
+                      : theme
+                      ? "text-white"
+                      : "text-black"
+                  }`
+                }
               >
                 Achievements
-              </Link>
-              <Link
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/blog"
-                className={`block text-xl hover:text-white text-center hover:bg-gray-700 rounded-full py-2 px-4 border ${theme ? "border-white" : "border-black"}`}
+                onClick={toggleDrawer(false)}
+                className={({ isActive }) =>
+                  `block py-2 ${
+                    isActive
+                      ? "text-red-500"
+                      : theme
+                      ? "text-white"
+                      : "text-black"
+                  }`
+                }
               >
-                Blogs
-              </Link>
-            </nav>
-          </div>
-        </Drawer>
-      </nav>
+                Blog
+              </NavLink>
+            </li>
+          </ul>
+
+          <Divider className={`${theme ? "bg-gray-700" : "bg-gray-300"} my-6`} />
+
+          <Link to="/contact" onClick={toggleDrawer(false)}>
+            <button className="w-full bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md font-semibold transition-all duration-300">
+              Get Quote
+            </button>
+          </Link>
+        </div>
+      </Drawer>
     </header>
   );
 }
