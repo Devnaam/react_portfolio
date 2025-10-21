@@ -147,7 +147,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:workwithdevnaam@gmail.com"
                   className={`flex items-center gap-2 ${
                     theme ? "text-gray-400 hover:text-orange-500" : "text-gray-600 hover:text-orange-600"
                   } transition-colors duration-300`}
@@ -157,7 +157,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/YOUR_NUMBER"
+                  href="https://wa.me/6205791382"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-2 ${

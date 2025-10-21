@@ -178,7 +178,7 @@ function Contact() {
 
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/YOUR_NUMBER"
+                    href="https://wa.me/6205791382"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block p-6 rounded-lg mb-4 ${
@@ -198,7 +198,7 @@ function Contact() {
 
                   {/* Email */}
                   <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:workwithdevnaam@gmail.com"
                     className={`block p-6 rounded-lg mb-4 ${
                       theme ? "bg-gray-900 hover:bg-gray-800" : "bg-gray-50 hover:bg-gray-100"
                     } transition-colors duration-300`}
@@ -208,7 +208,7 @@ function Contact() {
                       <div>
                         <p className="font-bold text-lg">Email</p>
                         <p className={theme ? "text-gray-400" : "text-gray-600"}>
-                          your.email@example.com
+                          workwithdevnaam@gmail.com
                         </p>
                       </div>
                     </div>
@@ -216,7 +216,7 @@ function Contact() {
 
                   {/* LinkedIn */}
                   <a
-                    href="https://linkedin.com/in/yourprofile"
+                    href="https://www.linkedin.com/in/devnaam-priyadershi-56a256282/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block p-6 rounded-lg ${
